@@ -29,7 +29,7 @@ function Select({
   )
 }
 
-export default React.forwardRef(Select);
+export default forwardRef(Select);
 
 
     
