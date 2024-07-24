@@ -1,35 +1,29 @@
-import {React, forwardRef, useId} from 'react'
+import React, {useId} from 'react'
 
 function Select({
     options,
     label,
-    className = '',
-    ...props 
-     }, ref) {
-
-   const id = useId()
-
+    className,
+    ...props
+}, ref) {
+    const id = useId()
   return (
     <div className='w-full'>
-      {label && 
-      <label  htmlFor={id} className=''></label>}
-      <Select {...props} id={id} ref={ref} className={`w-full, 
-      px-3 py-2 rounded-lg bg-white text-black outline-none
-      focus:bg-gray-50 duration-200 border border-gray-50
-      ${className}`}>
-    
-    {options?.map((option)=> (
-        <option key={option} value={option}>
-           {option}
-        </option>
-    ))}
-
-      </Select>
+        {label && <label htmlFor={id} className=''></label>}
+        <select
+        {...props}
+        id={id}
+        ref={ref}
+        className={`px-3 py-2 rounded-lg bg-white text-black outline-none focus:bg-gray-50 duration-200 border border-gray-200 w-full ${className}`}
+        >
+            {options?.map((option) => (
+                <option key={option} value={option}>
+                    {option}
+                </option>
+            ))}
+        </select>
     </div>
   )
 }
 
-export default forwardRef(Select);
-
-
-    
+export default React.forwardRef(Select)

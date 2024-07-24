@@ -1,20 +1,29 @@
 import React from 'react'
-import { Editor } from '@tinymce/tinymce-react'
-import { Controller } from 'react-hook-form'
+import tinymce from 'tinymce/tinymce'
+import {Editor } from '@tinymce/tinymce-react';
+import {Controller } from 'react-hook-form';
+import { useEffect } from 'react';
 
-const RTE=({name, control, label,
-  defaultValue ='' })=> {
+export default function RTE({name, control, label, defaultValue =""}) {
+
+  // useEffect(() => {
+  //   tinymce.init({
+  //     selector: '#editor',
+  //     apiKey: 'uuagnwb4n4m9ttnpf00nyjmn1awc10e60fzrcyahf9h2rmh6',
+      
+  //   });
+  // }, []);
+
   return (
-    <div className='w-full'>
-      {label && <label className='inline-block
-      mb-1 pl-1'>{label}</label>}
-    
+    <div className='w-full'> 
+    {label && <label className='inline-block mb-1 pl-1'>{label}</label>}
+
     <Controller
-    name= {name || 'content'}
-    control = {control}
-    render ={({field: {onChange}})=>(
-       <Editor
-       initialValue={defaultValue}
+    name={name || "content"}
+    control={control}
+    render={({field: {onChange}}) => (
+        <Editor
+        initialValue={defaultValue}
         init={{
             initialValue: defaultValue,
             height: 500,
@@ -46,13 +55,11 @@ const RTE=({name, control, label,
             content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }"
         }}
         onEditorChange={onChange}
-       />
+        />
     )}
-
     />
 
-    </div>
+     </div>
   )
 }
 
-export default RTE
