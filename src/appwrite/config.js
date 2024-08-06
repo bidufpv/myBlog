@@ -14,8 +14,14 @@ export class Service{
         this.bucket = new Storage(this.client);
     }
 
-    async createPost({title, slug, content, featuredImage, status, userId}){
+    async createPost({ title, slug, content, featuredImage, status, userId }) {
         try {
+            // Ensure content is a string and trim it to 255 characters if necessary
+            if (typeof content !== 'string') {
+                throw new Error('Content must be a string');
+            }
+            content = content.substring(0, 255);
+    
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
@@ -27,11 +33,12 @@ export class Service{
                     status,
                     userId,
                 }
-            )
+            );
         } catch (error) {
             console.log("Appwrite service :: createPost :: error", error);
         }
     }
+    
 
     async updatePost(slug, {title, content, featuredImage, status}){
         try {
@@ -48,7 +55,7 @@ export class Service{
                 }
             )
         } catch (error) {
-            console.log("Appwrite service :: updatePost :: error", error);
+            console.log("Appwrite serive :: updatePost :: error", error);
         }
     }
 
@@ -62,7 +69,7 @@ export class Service{
             )
             return true
         } catch (error) {
-            console.log("Appwrite service :: deletePost :: error", error);
+            console.log("Appwrite serive :: deletePost :: error", error);
             return false
         }
     }
@@ -76,7 +83,7 @@ export class Service{
             
             )
         } catch (error) {
-            console.log("Appwrite service :: getPost :: error", error);
+            console.log("Appwrite serive :: getPost :: error", error);
             return false
         }
     }
@@ -91,7 +98,7 @@ export class Service{
 
             )
         } catch (error) {
-            console.log("Appwrite service :: getPosts :: error", error);
+            console.log("Appwrite serive :: getPosts :: error", error);
             return false
         }
     }
@@ -106,7 +113,7 @@ export class Service{
                 file
             )
         } catch (error) {
-            console.log("Appwrite service :: uploadFile :: error", error);
+            console.log(error);
             return false
         }
     }
@@ -119,7 +126,7 @@ export class Service{
             )
             return true
         } catch (error) {
-            console.log("Appwrite service :: deleteFile :: error", error);
+            console.log("Appwrite serive :: deleteFile :: error", error);
             return false
         }
     }
@@ -127,11 +134,11 @@ export class Service{
     getFilePreview(fileId){
         return this.bucket.getFilePreview(
             conf.appwriteBucketId,
-            fileId
+            fileId,
         )
     }
 }
 
 
 const service = new Service()
-export default service;
+export default service
