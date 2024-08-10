@@ -8,10 +8,11 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-     "clean": "rm -rf node_modules dist build"
+    "clean": "rm -rf node_modules dist build"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "@tinymce/tinymce-react": "^5.0.1",
     "appwrite": "^14.0.1",
     "html-react-parser": "^5.1.10",
