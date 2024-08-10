@@ -9,7 +9,7 @@ import { AuthLayout, Login } from './components/index.js'
 import AddPost from "./pages/AddPost.jsx";
 import Signup from './pages/Signup.jsx'
 import EditPost from "./pages/EditPost.jsx";
-import Home from './pages/Home.jsx'
+import {Home} from './pages/Home.jsx'
 
 import Post from "./pages/Post.jsx";
 
