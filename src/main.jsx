@@ -11,10 +11,10 @@ import Post from "./pages/Post.jsx";
 
 import AllPosts from "./pages/AllPosts.jsx";
 
-import  AddPost  from './pages/AddPost.jsx';
-import  Signup  from './pages/Signup.jsx';
-import  EditPost  from './pages/EditPost.jsx';
-import  Home  from './pages/Home.jsx';
+import AddPost  from './pages/AddPost.jsx';
+import Signup  from './pages/Signup.jsx';
+import EditPost  from './pages/EditPost.jsx';
+import Home  from './pages/Home.jsx';
 
 const router = createBrowserRouter([
   {

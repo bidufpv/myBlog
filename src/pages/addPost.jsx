@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, PostForm } from '../components'
 
- export const AddPost = ()=> {
+ const AddPost = ()=> {
   return (
     <div className='py-8'>
         <Container>
@@ -10,4 +10,6 @@ import { Container, PostForm } from '../components'
     </div>
   )
 }
+
+export default AddPost;
 
