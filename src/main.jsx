@@ -7,10 +7,9 @@ import store from './store/store.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { AuthLayout, Login } from './components/index.js'
 
+
 import Post from "./pages/Post.jsx";
-
 import AllPosts from "./pages/AllPosts.jsx";
-
 import AddPost  from './pages/AddPost.jsx';
 import Signup  from './pages/Signup.jsx';
 import EditPost  from './pages/EditPost.jsx';
@@ -51,7 +50,7 @@ const router = createBrowserRouter([
             ),
         },
         {
-            path: "/add-post",
+            path: "/add-post/:slug",
             element: (
                 <AuthLayout authentication>
                     {" "}
