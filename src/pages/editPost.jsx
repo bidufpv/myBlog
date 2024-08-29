@@ -3,7 +3,7 @@ import {Container, PostForm} from '../components'
 import appwriteService from "../appwrite/config";
 import { useNavigate,  useParams } from 'react-router-dom';
 
-const EditPost = ()=> {
+export const EditPost = ()=> {
     const [post, setPosts] = useState(null)
     const {slug} = useParams()
     const navigate = useNavigate()
@@ -27,5 +27,3 @@ const EditPost = ()=> {
     </div>
   ) : null
 }
-
-export default EditPost;
