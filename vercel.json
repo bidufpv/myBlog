@@ -1,0 +1,21 @@
+{
+    "rewrites":[
+        {
+            "source":"/(.*)", "destination":"/"
+        },
+        {
+            "routes": [
+                {"src":"/(.*)", "dest":"/"}
+            ]
+        },
+        {
+            "rewrites": [
+              { "source": "/api/(.*)", "destination": "/api/index.js" },
+              { "source": "/dashboard/(.*)", "destination": "/dashboard/index.html" }
+            ],
+            "redirects": [
+              { "source": "/old-path", "destination": "/new-path", "permanent": true }
+            ]
+          }
+    ]
+}
